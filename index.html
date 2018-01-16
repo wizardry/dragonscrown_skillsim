@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="ico" href="./img/fav.ico" />
+	<meta name="msvalidate.01" content="AD5D5D3F4882D768F5265392114AEC82" />
+	<meta name="description" content="PS3/PS Vita　専用ソフト『ドラゴンズクラウン』のスキルシミュレーターです">
+	<meta name="keywords" content="ドラクラ,スキル,ドラゴンズクラウン,Dragon's Crown,スキル,シミュ,シミュレーター">
+	<meta property="og:title" content="ドラゴンズクラウン　スキルシミューレーター">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="PS3/PS Vita　専用ソフト『ドラゴンズクラウン』のスキルシミュレーターです">
+	<meta property="og:site_name" content="ドラゴンズクラウン　スキルシミューレーター">
+	<title>ドラゴンズクラウン　スキルシミューレーター | Dragon's Crown Skill Simulator</title>
+	<link rel="stylesheet" href="./css/def.css">
+	<script src="./js/jquery.js"></script>
+	<script src="./js/data.js"></script>
+	<script src="./js/plugin.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/analyse.js"></script>
+</head>
+<body>
+	<header>
+		<div class="wrap">
+			<h1>ドラゴンズクラウン　スキルシミューレーター</h1>
+			<div class="snsGroup">
+				<ul>
+					<li class="twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="ja" data-hashtags="DragonsCrown">ツイート</a>
+					</li>
+					<li class="google">
+						<div class="g-plusone" data-size="small" data-annotation="none"></div>
+					</li>
+					<li class="facebook">
+						<div id="fb-root"></div>
+						<div class="fb-like" data-href="http://dragonscrown.web.fc2.com/" data-width="100" data-layout="button_count" data-show-faces="true" data-send="true"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<nav>
+		<ul id="js-nav">
+			<li class="c1 current">Fighter|ファイター</li>
+			<li class="c2">Amazon|アマゾン</li>
+			<li class="c3">Wizard|ウィザード</li>
+			<li class="c4">Elf|エルフ</li>
+			<li class="c5">Dwarf|ドワーフ</li>
+			<li class="c6">Sorceress|ソーサレス</li>
+		</ul>
+	</nav>
+	<div class="contents">
+		<div class="wrap">
+			<div class="mainContents">
+				<div class="mainContentsHeader">
+					<h2 id="type"><span class="en">Fighter</span><span>|</span><span class="ja">ファイター</span></h2>
+					<table class="settingArea" id='resultTable'>
+						<tr>
+							<td>
+								<div class="lvSet">
+									<p>Lv <span class="lv">99</span></p>
+									<input type="text" id="lvSetInput">
+								</div>
+							</td>
+							<td>
+								<p id="spDraw">残SP <span class="sp">155</span></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<ul class="tabList" id="js-tabList">
+					<li class="current">ユニーク</li>
+					<li>コモン</li>
+				</ul>
+				<div class="skillWrap" id="js-skillWrap">
+					<div class="bgElf"></div>
+					<div class="skillDrawArea">
+						<div class="skillDetail js-uniq">
+							<div class="skillListWrap" id="skillUniqFig">
+							</div>
+						</div>
+						<div class="skillDetail js-common hide">
+							<div class="skillListWrap" id="skillCommon">
+							</div>
+						</div>
+					</div>
+					<div class="skillInfoBoard" id="skillDetail">
+						<h3>スキル詳細：<span></span></h3>
+						<table>
+						</table>
+					</div>
+				</div>
+				<div class="contentsInfoBoard">
+					<table>
+						<tr>
+							<th>
+								エクストラポケット取得
+							</th>
+							<td>
+								<label for="pocketLv0">
+									<input type="radio" name="pocketLv" id="pocketLv0" checked>未取得
+								</label>
+								<label for="pocketLv1">
+									<input type="radio" name="pocketLv" id="pocketLv1">LV 1
+								</label>
+								<label for="pocketLv2">
+									<input type="radio" name="pocketLv" id="pocketLv2">LV 2
+								</label>
+								<label for="pocketLv3">
+									<input type="radio" name="pocketLv" id="pocketLv3">LV 3
+								</label>
+							</td>
+						</tr>
+						<tr>
+							<th>依頼取得ポイント</th>
+							<td>
+								<input type="number" max="155" min="0" id="questPointsInput" value="56">
+								<sup>(min:0-max:56)</sup>
+								<span class="btn-base" id="questListView">一覧から設定する</span>
+							</td>
+						</tr>
+					</table>
+					<ul class="btn-group">
+						<li>
+							<span class="btn-base output" id="js-skillOutput">テキスト出力</span>
+						</li>
+						<li>
+							<span id="js-skillReset" class="btn-base reset">リセット</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rightContents">
+				<aside class="afSpace">
+					<div class="af">
+						<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=f1f1f1&IS2=1&bg1=f1f1f1&fc1=666666&lc1=0000FF&t=dcskillsim-22&o=9&p=8&l=as1&m=amazon&f=ifr&ref=qf_sp_asin_til&asins=B00BY020CQ" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+					</div>
+					<div class="af">
+						<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=dcskillsim-22&o=9&p=8&l=as1&asins=B00BY0209Y&ref=tf_til&fc1=666666&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=f1f1f1&bg1=f1f1f1&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+					</div>
+				</aside>
+				<div class="detailContents">
+					<h4>テキスト出力スペース<sup>ctrl+A → ctrl+C</sup></h4>
+					
+					<textarea class="outputArea"></textarea>
+				</div>
+				<aside class="linkSpace">
+					<ul>
+						<li><a href="http://dragons-crown.com">Dragon's Crown OFFICIAL WEBSITE</a></li>
+						<li><a href="http://www55.atwiki.jp/dragons-crown/">Dragon's Crown 攻略まとめwiki</a></li>
+						<li><a href="http://www.4gamer.net/games/134/G013480/FC20130718003/">ドラクラ完全攻略 （攻略Wiki風）</a></li>
+						<li><a href="http://mh4hakkutsu.web.fc2.com/">発掘装備 一覧 | モンスターハンター4</a><br>&nbsp;&nbsp;作りました。よければ使ってやって下さい。</li>
+					</ul>
+				</aside>
+				<aside class="afSpade">
+					<div class="af">
+						<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=F1F1F1&IS2=1&bg1=F1F1F1&fc1=666666&lc1=0000FF&t=dcskillsim-22&o=9&p=8&l=as1&m=amazon&f=ifr&ref=tf_til&asins=B005MNP140" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+					</div>
+					<div class="af">
+						<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=dcskillsim-22&o=9&p=8&l=as1&asins=B00CLMEPTC&ref=tf_til&fc1=666666&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=F1F1F1&bg1=F1F1F1&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+					</div>
+				</aside>
+			</div>
+			<h2 class="h5">このページについて</h2>
+			<div class="information">
+				<p>このページは PS3 PSVita 専用ソフト、<strong>ドラゴンズクラウンのスキルシミュレーター</strong>です。</p>
+				<p></p>
+
+				<h6>使い方</h6>
+				<ol>
+					<li>キャラクターを選択してください</li>
+					<li>選びたいスキルを選択してください。</li>
+					<li>クリックや、数値入力後にフォーカスを外すことにより数値が反映されます。</li>
+				</ol>
+				<ul>
+					<li>個別にリセットしたい場合は各スキル名右側にある×ボタンを押して下さい。</li>
+					<li>ユニーク/コモンはタブ移動で選択できます。</li>
+					<li>スキル枠をクリックすることにより詳細が右側に表示されます。</li>
+					<li>Lvを選択することにより選択行と、取得済行の色が変更されますので目安にして下さい。</li>
+					<li>依頼で取得できるスキルポイントを調整したい場合は依頼取得ポイントより変更下さい</li>
+					<li>レベルで取得できるスキルポイントを調整したい場合は職業下部にあるLv部分をクリックして下さい。</li>
+					<li>テキスト出力ボタンを押すことにより、テキスト出力スペースにアウトプットされます。</li>
+					<li>全てリセットしたい場合はリセットボタンを押して下さい。</li>
+				</ul>
+				<h6>注意</h6>
+				<ul>
+					<li>リロードをするとおかしくなることがあります。おかしくなってしまった場合はctrl+F5を押して下さい。</li>
+					<li>キャラクターセレクトをすると入力された分は消えてしまいます。</li>
+					<li>基本的にIEとか知りません。Firefox,Google Chromeなどのモダンブラウザで閲覧下さい。</li>
+					<li>全てjavascriptの為、古いPCや、PCに比べスペックの低いスマホなどで閲覧すると固まる可能性があります。</li>
+				</ul>
+				<h6>おねがい</h6>
+				<p>何か不具合などございましたらfooterに記載されているメールアドレスか、もしくは@wiz_reinまでreply下さい。</p>
+			</div>
+			<h2 class="h5">今後予定</h2>
+			<div class="updateInfo">
+				<dl>
+					<dt><s>やることリスト</s></dt>
+					<dd><s>取得レベル、取得SLv制限実装 - <b>スキルシミュレーター</b></s></dd>
+				</dl>
+			</div>
+			<h2 class="h5">更新履歴</h2>
+			<div class="updateInfo">
+				<dl>
+					<dt>2013/11/12</dt>
+					<dd>FIX宣言。 - <b>WEB</b></dd>
+					<dd>リンク追加。 - <b>WEB</b></dd>
+					<dd>javascript軽量化 - <b>WEB</b></dd>
+					<dt>2013/09/10</dt>
+					<dd>エルフちゃん優遇計画実装 - <b>WEB</b></dd>
+					<dt>2013/08/20</dt>
+					<dd>一覧から設定する追加 - <b>スキルシミュレーター</b></dd>
+					<dd>クエストの文言を依頼に修正 - WEB</dd>
+					<dt>2013/08/15</dt>
+					<dd>Amazonアソシエイト追加 - WEB</dd>
+					<dd>外部リンクスペース追加 - WEB</dd>
+					<dd>フッター文言変更 - WEB</dd>
+					<dt>2013/08/12</dt>
+					<dd>Facebook いいねボタン追加 - WEB</dd>
+					<dd>スキルレベルとスキル詳細テーブルの連動 - <b>スキルシミュレーター</b></dd>
+					<dt>2013/08/11</dt>
+					<dd>レベル変更を実装 - <b>スキルシミュレーター</b></dd>
+					<dt>2013/08/08</dt>
+					<dd>エクストラポケット取得と依頼取得ポイント（直入力のみ）実装 - <b>スキルシミュレーター</b></dd>
+					<dd>メイン機能実装 - <b>スキルシミュレーター</b></dd>
+					<dd>キャラ選択実装 - <b>スキルシミュレーター</b></dd>
+					<dd>個別リセット実装 - <b>スキルシミュレーター</b></dd>
+					<dd>テキスト出力実装 - <b>スキルシミュレーター</b></dd>
+					<dt>2013/08/07</dt>
+					<dd>データ入れ込みと初期読み込み時の描画・生成部分を作成 - <b>スキルシミュレーター</b></dd>
+					<dt>2013/08/06</dt>
+					<dd>プロジェクト開始 - WEB</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p>dragons's crown skill sim by うぃず  |  mailto : mikeneko_infinite@やふー <!--twitter to: @wiz_rein--></p>
+	</footer>
+
+<div id="modalWrap" class="modalWrap">
+	<div class="modal">
+		<div class="modalInner">
+			<h2>依頼一覧 <span id="modalClose">×</span></h2>
+			<div class="questInfo">
+				<p>合計<span>56</span></p>
+			</div>
+			<table class="questListTable">
+				<col width="30px">
+				<col width="200px">
+				<col width="200px">
+				<col width="80px">
+				<col>
+				<tr>
+					<th><input type="checkbox" id="allChecker"></th>
+					<th>場所</th>
+					<th>依頼名</th>
+					<th>取得SP</th>
+					<th>内容</th>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>幽霊船の入江A</td>
+				    <td>エリオット号の調査</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>幽霊船の入江A</td>
+				    <td>開けゴマ</td>
+				    <td>2</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>幽霊船の入江A</td>
+				    <td>ジニーの開放</td>
+				    <td>1</td>
+				    <td>特殊アイテム使用</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>幽霊船の入江B</td>
+				    <td>生きた化石</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>幽霊船の入江B</td>
+				    <td>酔いどれ水夫の法螺話</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ビルバロン地下要塞A</td>
+				    <td>英雄の形見を取り戻せ</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ビルバロン地下要塞A</td>
+				    <td>飛行要塞設計図の入手</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ビルバロン地下要塞A</td>
+				    <td>ミノタウロスの生贄</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ビルバロン地下要塞B</td>
+				    <td>ガーゴイルゲート突破作戦</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>死者の城の地下墓所A</td>
+				    <td>主人の霊にご挨拶</td>
+				    <td>1</td>
+				    <td>特殊行動</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>死者の城の地下墓所A</td>
+				    <td>ハンターを出し抜け</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>死者の城の地下墓所A</td>
+				    <td>村娘たちの救出</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>死者の城の地下墓所B</td>
+				    <td>蘇生反対派</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>古代神殿の遺跡A</td>
+				    <td>ハチクマ減少原因の調査</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>古代神殿の遺跡A</td>
+				    <td>竜の起源</td>
+				    <td>2</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>古代神殿の遺跡A</td>
+				    <td>ある騎士の捜索</td>
+				    <td>1</td>
+				    <td>ソロボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>古代神殿の遺跡A</td>
+				    <td>ハーピーの雛の捕獲</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>古代神殿の遺跡B</td>
+				    <td>神殿に潜む邪眼</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ウォレスの地下迷宮A</td>
+				    <td>菌類の採取依頼</td>
+				    <td>1</td>
+				    <td>アイテム収集</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ウォレスの地下迷宮A</td>
+				    <td>進化の魔法</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ウォレスの地下迷宮A</td>
+				    <td>ワーム変種の調査</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ウォレスの地下迷宮B</td>
+				    <td>魔女リマ・レイの復活</td>
+				    <td>2</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>ウォレスの地下迷宮B</td>
+				    <td>巨人の牢獄</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>忘れられた聖域A</td>
+				    <td>ゴーレムのルーン解読</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>忘れられた聖域B</td>
+				    <td>魔術教団の提供者</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>忘れられた聖域B</td>
+				    <td>僧侶の告白</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>忘れられた聖域B</td>
+				    <td>悪魔との契約</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>旧王都の廃墟A</td>
+				    <td>壁の向こうの声</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>旧王都の廃墟A</td>
+				    <td>飛竜の卵泥棒</td>
+				    <td>1</td>
+				    <td>アイテム収集</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>旧王都の廃墟B</td>
+				    <td>神の威光を知らしめよ</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>魔法使いの塔</td>
+				    <td>ヘンリッタの自動人形</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>魔法使いの塔A</td>
+				    <td>禁書の探索</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>魔法使いの塔A</td>
+				    <td>闇幹部組織の過去</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>魔法使いの塔B</td>
+				    <td>魔法の絨毯の秘密</td>
+				    <td>1</td>
+				    <td>オブジェクト調査</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>魔法使いの塔B</td>
+				    <td>人造生命の研究</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>迷いの森</td>
+				    <td>森林警備隊</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>迷いの森A</td>
+				    <td>紫水晶の入手</td>
+				    <td>1</td>
+				    <td>アイテム収集</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>迷いの森A</td>
+				    <td>仄暗い水の底には</td>
+				    <td>1</td>
+				    <td>寄り道</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>迷いの森A</td>
+				    <td>異世界の調査</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>迷いの森B</td>
+				    <td>兎との一騎打ち</td>
+				    <td>1</td>
+				    <td>条件付きボス撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（死者の地下墓所Aや古代神殿の遺跡Aなど）"></span></td>
+				    <td>蜘蛛の糸の調達</td>
+				    <td>1</td>
+				    <td>アイテム収集</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（忘れられた聖域や魔法使いの塔など）"></span></td>
+				    <td>愛犬狂</td>
+				    <td>1</td>
+				    <td>攻撃を受ける</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（迷いの森Bや古代神殿の遺跡Bなど）"></span></td>
+				    <td>オウルベアー駆除</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（旧王都の廃墟Aや迷いの森Aなど）"></span></td>
+				    <td>人食い魚の駆除</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（ウォレスの地下迷宮Bや幽霊船の入江など）"></span></td>
+				    <td>土の下の勇士たち</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（迷いの森Bなど）"></span></td>
+				    <td>ボルガの剣闘士たち</td>
+				    <td>1</td>
+				    <td>敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（ビルバロン地下要塞や古代神殿の遺跡など）"></span></td>
+				    <td>戦士の証明の儀式</td>
+				    <td>1</td>
+				    <td>専用アイテム装備で敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（ビルバロン地下要塞や旧王都の廃墟Aなど）"></span></td>
+				    <td>魔獣使いの素質</td>
+				    <td>1</td>
+				    <td>獣にのって敵撃破</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>全ステージ<span class="hiddenDetail" title="（混沌以外）"></span></td>
+				    <td>ようせいをたすけて</td>
+				    <td>3</td>
+				    <td>妖精救出</td>
+				</tr>
+				<tr>
+				    <td><input type="checkbox"></td>
+				    <td>街</td>
+				    <td>生命の救済者</td>
+				    <td>2</td>
+				    <td>骨復活</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="overlay"></div>
+</div>
+<div id="elfWorkingAnimate" class="elfWorkingAnimate"></div>
+</body>
+</html>

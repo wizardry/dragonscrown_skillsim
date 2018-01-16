@@ -1,0 +1,884 @@
+/*reset*/
+@CHARSET "UTF-8";
+/* v2.0 | 20110126
+  http://meyerweb.com/eric/tools/css/reset/ 
+  License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html, body {
+  position: relative;
+}
+
+strong {
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/*layout*/
+header {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  height: 44px;
+  background: #333;
+  box-shadow: 0px 2px 3px #333;
+  z-index: 100;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  height: 90px;
+  background: #666;
+  z-index: 50;
+}
+
+.contents {
+  width: 100%;
+  box-shadow: 0px -2px 3px #333333;
+  background: #efefef;
+  position: relative;
+  z-index: 100;
+}
+
+.mainContents {
+  margin: 15px 10px 40px 0;
+  padding: 5px 10px;
+  width: 826px;
+  float: left;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.rightContents {
+  margin: 15px 0 40px 10px;
+  width: 320px;
+  float: left;
+}
+
+aside {
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.afSpace {
+  height: 255px;
+}
+
+.detailContents {
+  height: 250px;
+  border: 1px solid #ccc;
+}
+
+.linkSpace {
+  height: auto;
+}
+
+.information {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  margin: 0 auto 15px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  width: 1200px;
+}
+
+.updateInfo {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  clear: both;
+  height: 100px;
+  margin: 0 auto 15px;
+  width: 1200px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  width: 100%;
+  height: 20px;
+  background: #333;
+  box-shadow: 0px -2px 3px #666666;
+}
+footer p {
+  padding: 5px 10px;
+  font-size: 10px;
+  color: #ccc;
+  text-align: right;
+}
+
+/*header*/
+h1 {
+  padding: 15px 20px 0;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+}
+
+.snsGroup {
+  padding-top: 15px;
+  float: right;
+}
+.snsGroup li {
+  margin-left: 5px;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+.snsGroup .twitter {
+  width: 67px;
+}
+.snsGroup .facebook {
+  width: auto;
+}
+.snsGroup .google {
+  padding-top: 2px;
+  width: 24px;
+}
+
+/*nav*/
+nav ul {
+  margin: 0 auto;
+  width: 1200px;
+}
+nav li {
+  padding-top: 90px;
+  width: 200px;
+  height: 0;
+  background-repeat: no-repeat;
+  background-position: top left;
+  display: block;
+  float: left;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.4;
+}
+nav li:hover {
+  opacity: 0.8;
+}
+nav li.current {
+  opacity: 1;
+}
+nav .c1 {
+  background-image: url(../img/ic_f.png);
+}
+nav .c2 {
+  background-image: url(../img/ic_a.png);
+}
+nav .c3 {
+  background-image: url(../img/ic_w.png);
+}
+nav .c4 {
+  background-image: url(../img/ic_e.png);
+}
+nav .c5 {
+  background-image: url(../img/ic_d.png);
+}
+nav .c6 {
+  background-image: url(../img/ic_s.png);
+}
+
+/*main*/
+h2 {
+  padding: 5px 10px 15px;
+  vertical-align: bottom;
+  height: 24px;
+}
+h2 .en {
+  padding-right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+}
+h2 .ja {
+  padding-left: 15px;
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.mainContentsHeader {
+  height: 95px;
+}
+
+.settingArea {
+  width: 350px;
+}
+.settingArea td {
+  padding: 0 10px;
+  width: 50%;
+  color: #666;
+  font-size: 12px;
+}
+.settingArea span {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+.settingArea .lvSet {
+  position: relative;
+}
+.settingArea .lvSet p {
+  border: 1px dashed #ccc;
+}
+.settingArea .lvSet p:hover {
+  border-color: #aaa;
+}
+.settingArea .lvSet input {
+  position: absolute;
+  top: 5px;
+  left: 23px;
+  width: 1em;
+  font-size: 30px;
+  padding: 0 5px;
+  border: 0;
+  display: none;
+}
+.settingArea p {
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.tabList {
+  margin-left: 10px;
+  position: relative;
+}
+.tabList li {
+  padding: 5px 10px;
+  width: 148px;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  border-bottom: 1px solid #666;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background: #ccc;
+  color: #999;
+  display: block;
+  float: left;
+  cursor: pointer;
+}
+.tabList li:hover {
+  opacity: 0.6;
+  background: #666;
+}
+.tabList li:last-child {
+  border-right: 1px solid #666;
+}
+.tabList li.current {
+  background: #f1f1f1;
+  color: #333;
+  font-weight: bold;
+  border-bottom-color: #f1f1f1;
+  cursor: default;
+}
+.tabList li.current:hover {
+  opacity: 1;
+}
+
+.skillDrawArea {
+  width: 350px;
+  float: left;
+  position: relative;
+  z-index: 100;
+}
+
+.skillWrap {
+  margin-top: -1px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  min-height: 250px;
+  box-shadow: 0px -2px 2px #cccccc, -1px -1px 1px 1px white inset;
+}
+
+.skillDetail {
+  margin-top: 15px;
+}
+
+.skillListWrap {
+  width: 350px;
+  float: left;
+}
+.skillListWrap dl {
+  margin-bottom: 15px;
+  border: 1px solid #000;
+}
+.skillListWrap dl:last-child {
+  margin-bottom: 10px;
+}
+.skillListWrap dl.current dt {
+  background: #aae;
+}
+.skillListWrap dt {
+  padding: 5px 10px;
+  border-bottom: 1px solid #000;
+  background: #ccc;
+  position: relative;
+}
+.skillListWrap dt span {
+  padding: 3px 5px;
+  text-align: center;
+  color: #aaa;
+  background: #ddd;
+  border: 0;
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.skillListWrap dt span:hover {
+  background: #bababa;
+}
+.skillListWrap ol {
+  display: block;
+  width: 100%;
+  height: 24px;
+  line-height: 0;
+}
+.skillListWrap li {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  line-height: 1;
+  margin: 0;
+  padding: 5px 0;
+  width: 10%;
+  font-size: 12px;
+  font-weight: bold;
+  background: #666;
+  border: 1px solid #fff;
+  border-right: none;
+  color: #ccc;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+}
+.skillListWrap li:last-child {
+  border-right: 1px solid #fff;
+}
+.skillListWrap li.selected {
+  background: #000;
+}
+
+.skillInfoBoard {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  margin-top: 15px;
+  margin-left: 25px;
+  padding: 5px 10px;
+  border: 1px solid #666;
+  width: 428px;
+  min-height: 300px;
+  background: #fff;
+  float: left;
+  display: block;
+  z-index: 100;
+  position: relative;
+}
+.skillInfoBoard h3 {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px 10px;
+  color: #333;
+}
+.skillInfoBoard table {
+  margin-bottom: 15px;
+  width: 100%;
+  font-size: 12px;
+}
+.skillInfoBoard table caption {
+  text-align: left;
+  padding: 5px 10px;
+  border-top: 1px solid #999;
+}
+.skillInfoBoard table th {
+  padding: 5px 10px;
+  background: #999;
+  text-align: left;
+  border: 1px solid #666;
+}
+.skillInfoBoard table td {
+  padding: 5px 10px;
+  text-align: right;
+  border: 1px solid #666;
+}
+.skillInfoBoard table tr:nth-child(odd) td {
+  background: #eee;
+}
+.skillInfoBoard table .current td {
+  background: #99a !important;
+}
+.skillInfoBoard table .currented td {
+  background: #ccc !important;
+}
+
+.contentsInfoBoard {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  width: 450px;
+  height: 100px;
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+.contentsInfoBoard table {
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.contentsInfoBoard table .btn-base {
+  float: right;
+}
+.contentsInfoBoard tr {
+  border-bottom: 1px solid white;
+}
+.contentsInfoBoard th {
+  text-align: left;
+  padding: 5px 10px;
+  padding-left: 5px;
+  background: #ccc;
+}
+.contentsInfoBoard td {
+  padding: 5px 10px;
+}
+.contentsInfoBoard input[type="number"] {
+  width: 3em;
+  margin-right: 5px;
+}
+.contentsInfoBoard .btn-group {
+  padding-right: 10px;
+}
+.contentsInfoBoard .btn-group li {
+  margin-left: 10px;
+  float: right;
+}
+.contentsInfoBoard .btn-group li:last-child {
+  margin-left: 0;
+}
+
+/*aside*/
+aside .af {
+  margin-left: 12px;
+  padding: 5px 10px;
+  float: left;
+}
+aside .af:nth-child(2) {
+  margin-left: 10px;
+}
+
+.linkSpace {
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+.linkSpace ul {
+  list-style: disc inside;
+  font-size: 14px;
+}
+.linkSpace ul li {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.detailContents {
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+.detailContents h4 {
+  padding: 5px 0 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.detailContents textarea {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  width: 99%;
+  resize: vertical;
+  overflow: visible;
+  min-height: 200px;
+}
+
+/*detail*/
+/*update*/
+.h5 {
+  vertical-align: bottom;
+  height: auto;
+  margin-bottom: 5px;
+  padding: 0px 0px 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  font-weight: bold;
+  clear: both;
+  color: #333;
+  font-size: 12px;
+}
+
+.information {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+  letter-spacing: 0.1em;
+  clear: both;
+}
+.information p {
+  margin-bottom: 15px;
+}
+.information h6 {
+  font-weight: bold;
+  padding-top: 10px;
+}
+.information h6 :first-child {
+  padding-top: 0;
+}
+.information h6 + p {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.information ol, .information ul {
+  margin-top: 10px;
+}
+.information li {
+  margin-bottom: 5px;
+}
+.information ol li {
+  list-style: decimal inside;
+}
+.information ul {
+  margin-left: 15px;
+}
+.information ul li {
+  list-style: disc inside;
+}
+
+.updateInfo dl {
+  overflow-y: scroll;
+  padding-top: 5px;
+  height: 85px;
+  line-height: 1.2;
+  font-size: 12px;
+  color: #333;
+  position: relative;
+}
+.updateInfo dt {
+  position: relative;
+  left: 0;
+  width: 10%;
+  float: left;
+}
+.updateInfo dd {
+  width: 88%;
+  display: block;
+  margin-bottom: 15px;
+  margin-left: 10%;
+  padding: 0 1%;
+  border-bottom: 1px dotted #666;
+  position: relative;
+}
+
+/*footer*/
+#fc2_footer {
+  height: 1px;
+  overflow: hidden;
+}
+#fc2_footer * {
+  height: 1px;
+  overflow: hidden;
+}
+
+img[alt] {
+  width: 1px;
+  height: 1px;
+  display: none;
+  overflow: hidden;
+}
+
+/*parts etc*/
+.wrap {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.clearfix, .snsGroup, nav ul, .tabList, .skillWrap, .skillListWrap ol, .contentsInfoBoard .btn-group, aside, .updateInfo dl, .wrap {
+  *zoom: 1;
+}
+.clearfix:after, .snsGroup:after, nav ul:after, .tabList:after, .skillWrap:after, .skillListWrap ol:after, .contentsInfoBoard .btn-group:after, aside:after, .updateInfo dl:after, .wrap:after {
+  content: " ";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+  overflow: hidden;
+  font-size: 0.1em;
+  line-height: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-base {
+  padding: 3px 5px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  background: #999;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  background: #fcc;
+}
+
+.disabled {
+  opacity: 0.4;
+  color: #333;
+  cursor: default !important;
+}
+.disabled:hover {
+  opacity: 0.4;
+}
+
+sup {
+  margin: 0 5px;
+  font-size: 10px;
+  color: #666;
+}
+
+/*modal*/
+.modalWrap {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal {
+  margin: 50px auto;
+  position: relative;
+  width: 1196px;
+  min-height: 600px;
+  background: #f1f1f1;
+  border: 1px solid #666;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px #000,0 0 3px 1px #666 inset;
+  z-index: 1100;
+}
+
+.modalInner {
+  padding: 5px 10px;
+}
+.modalInner h2 {
+  margin-bottom: 20px;
+  padding: 15px 10px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #666;
+  background: #ccc;
+  position: relative;
+}
+.modalInner h2 span {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  color: #666;
+  background: #f1f1f1;
+}
+.modalInner h2 span:hover {
+  background: #aaa;
+}
+.modalInner table {
+  table-layout: fixed;
+  width: 100%;
+}
+.modalInner table tr {
+  border-bottom: 1px solid #aaa;
+}
+.modalInner table tr:first-child {
+  border-bottom: 1px solid #666;
+}
+.modalInner table th {
+  padding: 5px 10px;
+  text-align: left;
+  background: #ccc;
+  color: #333;
+}
+.modalInner table th:first-child {
+  text-align: center;
+}
+.modalInner table td {
+  padding: 5px 10px;
+  color: #333;
+}
+.modalInner table td:nth-child(4) {
+  text-align: center;
+}
+.modalInner table tr:hover td {
+  background: #999;
+  color: #fff;
+}
+.modalInner table tr.checkedRow td {
+  background: #e1e1e1;
+  color: #999;
+}
+.modalInner .hiddenDetail {
+  margin: 0 5px;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  background: #333;
+  color: #333;
+  display: inline-block;
+  vertical-align: text-top;
+  cursor: pointer;
+}
+.modalInner .hiddenDetail:hover {
+  background: #666;
+  color: #666;
+}
+
+.questInfo {
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  color: #333;
+}
+.questInfo p {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.questInfo span {
+  color: #333333;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.bgElf {
+  margin-left: -10px;
+  background-image: url(../img/bg_elf.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  opacity: 0.2;
+  position: absolute;
+  z-index: 1;
+  width: 400px;
+  height: 643px;
+  display: none;
+  transform-origin: center bottom;
+  transform: scale(1) rotateY(0deg);
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.elfWorkingAnimate {
+  position: fixed;
+  bottom: 20px;
+  right: -200px;
+  width: 166px;
+  height: 240px;
+  background: url(../img/anim_elf.png) no-repeat top left;
+  z-index: 150;
+  display: none;
+}
